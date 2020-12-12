@@ -1,0 +1,168 @@
+@import "~normalize.css";
+@import "roboto.css";
+
+body{
+  font-family: 'Roboto', sans-serif;
+}
+
+.data-article{
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 200px;
+
+
+  .global-case-counter{
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #2c3e50;
+
+    .description{
+      color: #bdc3c7;
+    }
+
+    .counter{
+      font-size: 20px;
+      color: #e74c3c;
+    }
+  }
+
+  .data-search{
+    margin-top: 5px;
+    width: 192px;
+  }
+
+  .data-countries{
+    margin-top: 5px;
+    overflow: auto;
+    width: 200px;
+    height: 400px;
+    background-color: #2c3e50;
+  }
+
+  .card{
+    position: relative;
+    margin-top: 20px;
+    margin-left: 5px;
+
+    &__cases{
+      margin-left: 2px;
+      color: #e74c3c;
+    }
+
+    &__country{
+      margin-left: 5px;
+      cursor: pointer;
+      color: #bdc3c7;
+    }
+
+    &__flag{
+      position: absolute;
+      left: 155px;
+      top: 50%;
+      transform: translate(0, -50%);
+      width: 20px;
+    }
+
+    .small{
+      font-size: 13px;
+    }
+  }
+
+  .choice-indicator{
+    margin-top: 5px;
+    width: 100%;
+  }
+}
+
+
+.card:before{
+  content: '';
+  position: absolute;
+  width: 175px;
+  height: 1px;
+  background-color: silver;
+  top: 27px;
+}
+
+
+.data-statistics{
+  display: flex;
+  flex-direction: column;
+  //justify-content: center;
+  //align-items: center;
+  font-size: 13px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 200px;
+  height: 300px;
+  border: 1px solid silver;
+
+  background-color: #2c3e50;
+  color: #bdc3c7;
+
+  .statistics-CONT,
+  .statistics-RONT,
+  .statistics-DONT{
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .statistics{
+    position: relative;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+
+  .statistics:after{
+    position: absolute;
+    content: '';
+    width: 180px;
+    height: 1px;
+    background-color: #bdc3c7;
+    top: 22px;
+    left: 0;
+  }
+
+  div:nth-last-child(-n+3):after{
+    top: 32px;
+  }
+
+  .statistics-desc{
+    color: #3498db;
+  }
+
+  .statistics-country{
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+}
+
+
+
+.schedule-main{
+  width: 400px;
+  height: 300px;
+  position: absolute;
+  right: 30px;
+  top: 400px;
+
+  .control-buttons{
+    margin: 0 auto;
+    width: 230px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .chart-container{
+    //position: absolute;
+    right: 30px;
+    top: 400px;
+    //width: 400px;
+    //height: 200px;
+  }
+}

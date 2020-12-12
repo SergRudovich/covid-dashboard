@@ -1,29 +1,41 @@
 {
-  "name": "covid-dashboard",
+  "name": "covid_19",
   "version": "1.0.0",
-  "description": "RS school task COVID-19 Dashboard",
-  "main": "index.js",
+  "description": "covid 19",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --watch"
+    "build": "webpack --config webpack.config.js",
+    "dev": "cross-env NODE_ENV=development webpack --mode development",
+    "prod": "webpack --mode production",
+    "watch": "webpack --mode development --watch",
+    "start": "webpack-dev-server",
+    "bla": "webpack serve"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/SergRudovich/covid-dashboard.git"
-  },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "covid19"
+  ],
+  "author": "conserva",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/SergRudovich/covid-dashboard/issues"
-  },
-  "homepage": "https://github.com/SergRudovich/covid-dashboard#readme",
   "devDependencies": {
-    "eslint": "^7.15.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.22.1",
-    "webpack": "^5.10.1",
-    "webpack-cli": "^4.2.0"
+    "axios": "^0.21.0",
+    "chart.js": "^2.9.4",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.4.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^5.0.1",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^4.5.0",
+    "mini-css-extract-plugin": "^1.3.2",
+    "node-sass": "^5.0.0",
+    "sass-loader": "^10.1.0",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.10.0",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0",
+    "xml-loader": "^1.2.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "normalize.css": "^8.0.1"
+  }
 }

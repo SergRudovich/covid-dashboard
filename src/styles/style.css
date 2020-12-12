@@ -1,0 +1,39 @@
+@import "~normalize.css";
+@import "roboto.css";
+
+
+body{
+  font-family: 'Roboto', sans-serif;
+}
+
+.container{
+  padding-top: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+h1{
+  text-align: center;
+}
+
+.logo{
+  background-image: url('../assets/icon-square-big.png');
+  background-size: cover;
+  height: 200px;
+  width: 200px;
+  margin: 0 auto;
+}
+
+.data-article{
+  margin-left: 10px;
+  margin-top: 10px;
+  overflow: auto;
+  width: 200px;
+  height: 400px;
+  /* background-color: #2c3e50; */
+}
+
+.card-country{
+  margin-top: 10px;
+  margin-left: 10px;
+}
