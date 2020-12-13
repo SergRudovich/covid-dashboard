@@ -1,12 +1,12 @@
-export {showStatisticsCountry}
+export { showStatisticsCountry }
 
 
-async function showStatisticsCountry(data){
+async function showStatisticsCountry(data) {
   let dataTwo = await data;
   let country = null;
 
   document.addEventListener('click', (e) => {
-    if(e.target.dataset.country){
+    if (e.target.dataset.country) {
       country = e.target.dataset.country;
 
       let elem = dataTwo.filter(i => i.country === country);
