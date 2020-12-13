@@ -1,36 +1,55 @@
-import {getSchedule} from './getSchedule';
-import {expandBlock} from './expandBlock';
+import { getSchedule } from './getSchedule';
+import { expandBlock } from './expandBlock';
 import chart from 'chart.js';
 import axios from 'axios';
 
-export {getSheludeStatistics};
+export { getSheludeStatistics };
 
 
-async function getSheludeStatistics(){
+async function getSheludeStatistics() {
 
   let country;
   let data;
   data = await getSchedule();
   // console.log(data)
 
-  document.onclick = async function(e){
+  document.onclick = async function (e) {
 
     // если нажата кнопка в графике (cases, recovered, deaths)
-    if(e.target.dataset.controlbuttons){
+    if (e.target.dataset.controlbuttons) {
       // получеам условие по которуму нужно сортировать (cases, recovered, deaths)
       let elem = e.target.dataset.controlbuttons;
       // передаём параметром условие
-      if (elem === 'expandSchedule') expandBlock('getSheludeStatistics');
-      if (elem === 'expandStatistics') expandBlock('getStatistics');
-      if (elem === 'expandArticle') expandBlock('getArticle');
-      getItem(elem);
+      switch (elem) {
+        case 'expandSchedule':
+          expandBlock('getSheludeStatistics');
+          break;
+        case 'expandStatistics':
+          expandBlock('getStatistics');
+          break;
+        case 'expandArticle':
+          expandBlock('getArticle');
+          break;
+        default:
+          getItem(elem);
+
+          // очищаем старый график
+          removeChaConfig(chartConfig);
+      }
+
+
+      // if (elem === 'expandSchedule') expandBlock('getSheludeStatistics');
+      // if (elem === 'expandStatistics') expandBlock('getStatistics');
+      // if (elem === 'expandArticle') expandBlock('getArticle');
+
+      // getItem(elem);
 
       // очищаем старый график
-      removeChaConfig(chartConfig);
+      // removeChaConfig(chartConfig);
 
     }
 
-    if(e.target.dataset.country){
+    if (e.target.dataset.country) {
       // тоже самое что и выше только передаём условием выбранную страну
       country = e.target.dataset.country;
 
@@ -44,12 +63,12 @@ async function getSheludeStatistics(){
   }
 
 
-  function removeChaConfig({data: {datasets}}){
+  function removeChaConfig({ data: { datasets } }) {
     datasets.shift();
     chart.update();
   }
 
-//базовая настройка графика, остальное будем передавать параметрами
+  //базовая настройка графика, остальное будем передавать параметрами
   const ctx = document.querySelector('#chart').getContext('2d');
   const chartConfig = {
     type: 'bar',
@@ -93,7 +112,7 @@ async function getSheludeStatistics(){
 
 
   getItem();
-  function getItem(item = 'cases'){
+  function getItem(item = 'cases') {
 
     let obj = {
       mounths: [],
@@ -121,7 +140,7 @@ async function getSheludeStatistics(){
     chartConfig.data.datasets.push(newUser);
     chartConfig.data.labels = obj.mounths;
 
-    if(country){
+    if (country) {
       let text = `${country} - ${item} (last 180 days)`;
       chartConfig.options.title.text = text;
     }
