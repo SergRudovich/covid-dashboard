@@ -1,0 +1,8 @@
+@@font-face {
+  font-family: 'Roboto';
+  src: url(E:\Сергей\js\covid-dashboard\public/03523cf578d69fa923226ff457b92d90.ttf) format('truetype');
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
