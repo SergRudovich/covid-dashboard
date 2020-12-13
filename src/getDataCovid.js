@@ -18,7 +18,6 @@ async function getDataCovid() {
     if ( !hasData ) return;
 
     let dataTwo = data.map((country) => {
-      let a = country.country;
       return {
           country: country.country,
           deaths: country.deaths,
@@ -31,6 +30,8 @@ async function getDataCovid() {
           deathsOneHundredThousand: Math.floor(country.deathsPerOneMillion / 10),
           recoveredOneHundredThousand: Math.floor(country.recoveredPerOneMillion / 10),
           flag: country.countryInfo.flag,
+          lat: country.countryInfo.lat,
+          long: country.countryInfo.long,
       }
     });
 

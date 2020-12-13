@@ -1,4 +1,5 @@
 import './styles/style.scss';
+import './styles/map.scss';
 import {getDom} from './getDom';
 import {getDataCovid} from './getDataCovid';
 import {getStatistics} from './getStatistics';
@@ -8,6 +9,11 @@ import {selectStatistics} from './selectStatistics';
 
 // график
 import {getSheludeStatistics} from './schedule/getSheludeStatistics';
+
+
+import {getMap} from './map/getMap';
+
+
 
 getDom();
 
@@ -32,3 +38,6 @@ searchCountry(data);
 
 // отрисовка графика
 getSheludeStatistics();
+
+// карта
+getMap();
