@@ -1,6 +1,6 @@
 @@font-face {
   font-family: 'Roboto';
-  src: url(E:\Сергей\js\covid-dashboard\public/03523cf578d69fa923226ff457b92d90.ttf) format('truetype');
+  src: url(C:\Users\maksim\Desktop\covid\covid-dashboard\public/03523cf578d69fa923226ff457b92d90.ttf) format('truetype');
 }
 
 body {
@@ -39,9 +39,10 @@ body {
   background-color: #2c3e50;
 }
 .data-article .card {
-  position: relative;
-  margin-top: 20px;
-  margin-left: 5px;
+  display: flex;
+  justify-content: space-between;
+  padding: 9px 5px;
+  border-bottom: 1px solid silver;
 }
 .data-article .card__cases {
   margin-left: 2px;
@@ -53,10 +54,6 @@ body {
   color: #bdc3c7;
 }
 .data-article .card__flag {
-  position: absolute;
-  left: 155px;
-  top: 50%;
-  transform: translate(0, -50%);
   width: 20px;
 }
 .data-article .card .small {
@@ -65,15 +62,6 @@ body {
 .data-article .choice-indicator {
   margin-top: 5px;
   width: 100%;
-}
-
-.card:before {
-  content: "";
-  position: absolute;
-  width: 175px;
-  height: 1px;
-  background-color: silver;
-  top: 27px;
 }
 
 .data-statistics {

@@ -1,17 +1,16 @@
 // @import "~normalize.css";
-@import "roboto.css";
+@import 'roboto.css';
 
-body{
+body {
   font-family: 'Roboto', sans-serif;
 }
 
-.data-article{
+.data-article {
   margin-top: 10px;
   margin-left: 10px;
   width: 200px;
 
-
-  .global-case-counter{
+  .global-case-counter {
     padding: 10px 0;
     display: flex;
     flex-direction: column;
@@ -19,22 +18,22 @@ body{
     justify-content: center;
     background-color: #2c3e50;
 
-    .description{
+    .description {
       color: #bdc3c7;
     }
 
-    .counter{
+    .counter {
       font-size: 20px;
       color: #e74c3c;
     }
   }
 
-  .data-search{
+  .data-search {
     margin-top: 5px;
     width: 192px;
   }
 
-  .data-countries{
+  .data-countries {
     margin-top: 5px;
     overflow: auto;
     width: 200px;
@@ -42,53 +41,39 @@ body{
     background-color: #2c3e50;
   }
 
-  .card{
-    position: relative;
-    margin-top: 20px;
-    margin-left: 5px;
+  .card {
+    display: flex;
+    justify-content: space-between;
+    padding: 9px 5px;
+    border-bottom: 1px solid silver;
 
-    &__cases{
+    &__cases {
       margin-left: 2px;
       color: #e74c3c;
     }
 
-    &__country{
+    &__country {
       margin-left: 5px;
       cursor: pointer;
       color: #bdc3c7;
     }
 
-    &__flag{
-      position: absolute;
-      left: 155px;
-      top: 50%;
-      transform: translate(0, -50%);
+    &__flag {
       width: 20px;
     }
 
-    .small{
+    .small {
       font-size: 13px;
     }
   }
 
-  .choice-indicator{
+  .choice-indicator {
     margin-top: 5px;
     width: 100%;
   }
 }
 
-
-.card:before{
-  content: '';
-  position: absolute;
-  width: 175px;
-  height: 1px;
-  background-color: silver;
-  top: 27px;
-}
-
-
-.data-statistics{
+.data-statistics {
   display: flex;
   flex-direction: column;
   //justify-content: center;
@@ -106,19 +91,19 @@ body{
 
   .statistics-CONT,
   .statistics-RONT,
-  .statistics-DONT{
+  .statistics-DONT {
     font-size: 12px;
     display: flex;
     flex-direction: column;
   }
 
-  .statistics{
+  .statistics {
     position: relative;
     margin-top: 10px;
     margin-left: 10px;
   }
 
-  .statistics:after{
+  .statistics:after {
     position: absolute;
     content: '';
     width: 180px;
@@ -128,37 +113,35 @@ body{
     left: 0;
   }
 
-  div:nth-last-child(-n+3):after{
+  div:nth-last-child(-n + 3):after {
     top: 32px;
   }
 
-  .statistics-desc{
+  .statistics-desc {
     color: #3498db;
   }
 
-  .statistics-country{
+  .statistics-country {
     margin-top: 10px;
     margin-left: 10px;
   }
 }
 
-
-
-.schedule-main{
+.schedule-main {
   width: 400px;
   height: 300px;
   position: absolute;
   right: 30px;
   top: 400px;
 
-  .control-buttons{
+  .control-buttons {
     margin: 0 auto;
     width: 230px;
     display: flex;
     justify-content: space-between;
   }
 
-  .chart-container{
+  .chart-container {
     //position: absolute;
     right: 30px;
     top: 400px;
