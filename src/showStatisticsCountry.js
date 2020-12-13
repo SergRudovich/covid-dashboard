@@ -15,6 +15,7 @@ async function showStatisticsCountry(data){
 
       let divStatistics = document.querySelector('.data-statistics');
       divStatistics.innerHTML = `
+      <button data-controlButtons="expandStatistics" class="button-expand">] [</button>
             <div class='statistics statistics-country'>
               <span class='statistics-desc'>coutry:</span> 
               <span>${elemThree[0]}</span>  

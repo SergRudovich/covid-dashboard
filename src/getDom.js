@@ -32,7 +32,7 @@ function getDom() {
             <button data-controlButtons="cases" class="button-cases">cases</button>
             <button data-controlButtons="deaths" class="button-deaths">deaths</button>
             <button data-controlButtons="recovered" class="button-recovered">recovered</button>
-            <button data-controlButtons="expandSchedule" class="button-expand">X</button>
+            <button data-controlButtons="expandSchedule" class="button-expand">] [</button>
         </div>
         <div class="chart-container">
             <canvas id="chart"></canvas>
@@ -45,6 +45,9 @@ function getDom() {
 
     divSelect.append(choiceIndicator);
 
+    globalCasesCounter.innerHTML = `
+        <button data-controlButtons="expandStatistics" class="button-expand">] [</button>
+`;
 
     dataArticle.append(globalCasesCounter);
     dataArticle.append(divSearch);
@@ -54,8 +57,7 @@ function getDom() {
     document.body.append(dataArticle);
 
     divStatistics.innerHTML = `
-        <button data-controlButtons="expandStatistics" class="button-expand">X</button>
+        <button data-controlButtons="expandStatistics" class="button-expand">] [</button>
 `;
     document.body.append(divStatistics);
-
 }

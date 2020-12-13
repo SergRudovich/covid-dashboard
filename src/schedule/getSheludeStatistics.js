@@ -22,6 +22,7 @@ async function getSheludeStatistics(){
       // передаём параметром условие
       if (elem === 'expandSchedule') expandBlock('getSheludeStatistics');
       if (elem === 'expandStatistics') expandBlock('getStatistics');
+      if (elem === 'expandArticle') expandBlock('getArticle');
       getItem(elem);
 
       // очищаем старый график

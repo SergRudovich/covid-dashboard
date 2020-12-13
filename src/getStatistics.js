@@ -34,6 +34,7 @@ async function getStatistics(data) {
 
   //общее количество заражённых
   document.querySelector('.global-case-counter').innerHTML = `
+    <button data-controlButtons="expandArticle" class="button-expand">] [</button>
     <div class='description'>Global Cases</div>
     <div class='counter'>${globalCases}</div>
   `;
