@@ -1,4 +1,5 @@
 import {getSchedule} from './getSchedule';
+import {expandBlock} from './expandBlock';
 import chart from 'chart.js';
 import axios from 'axios';
 
@@ -18,8 +19,9 @@ async function getSheludeStatistics(){
     if(e.target.dataset.controlbuttons){
       // получеам условие по которуму нужно сортировать (cases, recovered, deaths)
       let elem = e.target.dataset.controlbuttons;
-
       // передаём параметром условие
+      if (elem === 'expandSchedule') expandBlock('getSheludeStatistics');
+      if (elem === 'expandStatistics') expandBlock('getStatistics');
       getItem(elem);
 
       // очищаем старый график

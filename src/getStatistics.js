@@ -1,7 +1,7 @@
-export {getStatistics};
+export { getStatistics };
 
-import {getCardCountry} from './getCardCountry';
-import {checkLengthNumer} from './getCardCountry';
+import { getCardCountry } from './getCardCountry';
+import { checkLengthNumer } from './getCardCountry';
 
 
 let obj = {
@@ -13,7 +13,8 @@ let obj = {
   "today recovered": 0
 };
 
-async function getStatistics(data){
+async function getStatistics(data) {
+
   let dataF = await data;
   dataF.sort((a, b) => b.cases - a.cases);
 
@@ -43,7 +44,7 @@ async function getStatistics(data){
   `;
 
   //общая статистика в таблице
-  document.querySelector('.data-statistics').innerHTML = `
+  document.querySelector('.data-statistics').innerHTML += `
     ${Object.entries(obj).map(getAllStatistics).join('')}
   `;
 
@@ -51,19 +52,19 @@ async function getStatistics(data){
   //селектор показателей
   let selects = ['cases', 'deaths', 'recovered'];
   document.querySelector('.choice-indicator')
-  .innerHTML = selects.map(getSelects).join('');
+    .innerHTML = selects.map(getSelects).join('');
 
 
 }
 
-function getSelects(select){
+function getSelects(select) {
   return `
     <option dataset.select='${select}'>${select}</option>
   `;
 }
 
 
-function getAllStatistics(i){
+function getAllStatistics(i) {
   return `
     <div class='statistics-country'>
       <span class='statistics-desc'>${i[0]}</span>

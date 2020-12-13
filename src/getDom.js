@@ -1,6 +1,6 @@
-export {getDom}
+export { getDom }
 
-function getDom(){
+function getDom() {
 
     let globalCasesCounter = document.createElement('div');
     globalCasesCounter.classList.add('global-case-counter');
@@ -32,6 +32,7 @@ function getDom(){
             <button data-controlButtons="cases" class="button-cases">cases</button>
             <button data-controlButtons="deaths" class="button-deaths">deaths</button>
             <button data-controlButtons="recovered" class="button-recovered">recovered</button>
+            <button data-controlButtons="expandSchedule" class="button-expand">X</button>
         </div>
         <div class="chart-container">
             <canvas id="chart"></canvas>
@@ -51,6 +52,10 @@ function getDom(){
     dataArticle.append(divData);
 
     document.body.append(dataArticle);
+
+    divStatistics.innerHTML = `
+        <button data-controlButtons="expandStatistics" class="button-expand">X</button>
+`;
     document.body.append(divStatistics);
 
 }
