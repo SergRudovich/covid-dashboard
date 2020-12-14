@@ -187,6 +187,13 @@ body{
     display: none;
   } 
 
+.button-expand:hover{
+  opacity: 0.8;
+  transform: scale(1.2);
+  transition: 0.4s;
+
+  }  
+
 .schedule-main:hover .button-expand{
   display: block;
   position: absolute;
@@ -194,6 +201,7 @@ body{
   border-radius: 50%;
   left: 95%;
   cursor: pointer;
+  transition: 0.4s;
 }
 
 .hidden-block{

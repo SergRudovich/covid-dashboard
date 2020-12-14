@@ -32,7 +32,7 @@ function getDom() {
             <button data-controlButtons="cases" class="button-cases">cases</button>
             <button data-controlButtons="deaths" class="button-deaths">deaths</button>
             <button data-controlButtons="recovered" class="button-recovered">recovered</button>
-            <button data-controlButtons="expandSchedule" class="button-expand">] [</button>
+            <a  class="button-expand"><img data-controlButtons="expandSchedule" src="expand.svg"/></a>
         </div>
         <div class="chart-container">
             <canvas id="chart"></canvas>
