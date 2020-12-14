@@ -81,6 +81,19 @@ function getDom(){
             
      `;
 
+
+//     document.body.append(scheduleMain);
+
+    // карта
+    let mapContainer = document.createElement('div');
+    mapContainer.classList.add('map-container');
+    mapContainer.innerHTML = `
+      <div id="sample"></div>
+    `;
+//     document.body.append(mapContainer);
+
+
+
     divSelect.append(choiceIndicator);
 
 
@@ -88,6 +101,8 @@ function getDom(){
     dataArticle.append(divSearch);
     dataArticle.append(divSelect);
     dataArticle.append(divData);
+  
+    map.append(mapContainer)
 
     wrapperInner.append(toggle, divStatistics,scheduleMain);
     wrapper.append(map, wrapperInner)
