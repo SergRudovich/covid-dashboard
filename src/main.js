@@ -6,6 +6,7 @@ import {getStatistics} from './getStatistics';
 import {showStatisticsCountry} from './showStatisticsCountry';
 import {searchCountry} from './searchCountry';
 import {selectStatistics} from './selectStatistics';
+import {toggleTable} from './switches/toggleTable';
 
 // график
 import {getSheludeStatistics} from './schedule/getSheludeStatistics';
@@ -41,3 +42,6 @@ getSheludeStatistics();
 
 // карта
 getMap();
+
+// переключение таблиц
+toggleTable();

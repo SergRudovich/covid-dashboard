@@ -14,7 +14,7 @@ function getCardCountry(data) {
 
   return `
     <div class='card'>
-      <div class='wrapper'>
+      <div class='card__wrapper'>
         <span>
           <img class='card__flag' src='${data.flag}' alt='flag'>
         </span>
