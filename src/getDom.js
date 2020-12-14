@@ -5,7 +5,9 @@ function getDom(){
 
     const header = document.createElement('header');
     header.classList.add('header');
-    
+
+    const footer = document.createElement('footer')
+    footer.classList.add('footer');
     const map = document.createElement('div');
     map.classList.add('map')
 
@@ -14,6 +16,9 @@ function getDom(){
 
     const wrapperInner = document.createElement('div');
     wrapperInner.classList.add('wrapper__inner');
+
+    const toggle = document.createElement('div');
+    toggle.classList.add('toggle');
 
     const globalCasesCounter = document.createElement('div');
     globalCasesCounter.classList.add('global-case-counter');
@@ -44,6 +49,10 @@ function getDom(){
         <h1 class="header__title">COVID-19 Dashboard</h1>
     `;
 
+    toggle.innerHTML = `
+        <h2 class="toggle__title">Table</h2><h2 class="toggle__title toggle__title-inactive">Schedule</h2>
+    `
+
     scheduleMain.innerHTML = `
         <div class="control-buttons">
             <button data-controlButtons="cases" class="button-cases">cases</button>
@@ -54,6 +63,23 @@ function getDom(){
             <canvas id="chart"></canvas>
         </div>
     `;
+    
+    footer.innerHTML = `
+        <div class="footer__info">
+            <h4 class="footer__title">CONNECT WITH US:</h4>
+            <div class="footer__authors">
+                <p><a href="https://github.com/SergRudovich" target="blank">Sergey Rudovich</a></p>
+                <p><a href="https://github.com/conservativ007" target="blank">Maks
+                conservativ007</a></p>
+                <p><a href="https://github.com/MaksimStseshanok" target="blank">Maksim Stseshanok</a></p>
+            </div>
+            <div class="footer__meta">
+                <a href="https://rs.school/js/" target="blank"><img src="https://rs.school/images/rs_school_js.svg" alt="RS School"></a>
+                <span class="footer__year">© 2020</span>
+            </div>
+        </div>
+            
+     `;
 
     divSelect.append(choiceIndicator);
 
@@ -63,10 +89,10 @@ function getDom(){
     dataArticle.append(divSelect);
     dataArticle.append(divData);
 
-    wrapperInner.append(divStatistics,scheduleMain);
+    wrapperInner.append(toggle, divStatistics,scheduleMain);
     wrapper.append(map, wrapperInner)
 
     root.append(dataArticle,wrapper)
 
-    document.body.append(header, root);
+    document.body.append(header, root, footer);
 }
