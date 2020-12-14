@@ -1,185 +1,255 @@
 // @import "~normalize.css";
-@import "roboto.css";
+@import 'roboto.css';
+@import 'variables';
 
-body{
+body {
   font-family: 'Roboto', sans-serif;
+  padding: 0;
+  margin: 0;
 }
 
-.data-article{
-  margin-top: 10px;
-  margin-left: 10px;
-  width: 200px;
+#root {
+  height: calc(100vh - 70px);
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+}
 
+.header {
+  display: flex;
+  align-items: center;
+  background: $bg-color;
+  height: 50px;
+  &__title {
+    color: $title-color;
+    padding-left: 10px;
+    margin: 0;
+  }
+}
 
-  .global-case-counter{
+.data-article {
+  min-width: 185px;
+  display: flex;
+  flex-direction: column;
+  width: 22%;
+  margin-right: 5px;
+  .global-case-counter {
     padding: 10px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #2c3e50;
-
-    .description{
+    background: $bg-color;
+    margin-bottom: 5px;
+    .description {
       color: #bdc3c7;
     }
 
-    .counter{
+    .counter {
       font-size: 20px;
       color: #e74c3c;
     }
   }
 
-  .data-search{
-    margin-top: 5px;
-    width: 100%;
+  .data-search {
+    margin-bottom: 5px;
   }
 
-  .data-countries{
-    margin-top: 5px;
+  .data-countries {
     overflow: auto;
-    width: 100%;
-    height: 400px;
-    background-color: #2c3e50;
+    background: $bg-color;
   }
 
-  .card{
-    position: relative;
-    margin-top: 20px;
-    margin-left: 5px;
-
-    &__cases{
+  .card {
+    display: flex;
+    justify-content: space-between;
+    padding: 9px 5px;
+    border-bottom: 1px solid silver;
+    &__cases {
       margin-left: 2px;
       color: #e74c3c;
     }
 
-    &__country{
+    &__country {
       margin-left: 5px;
       cursor: pointer;
       color: #bdc3c7;
     }
 
-    &__flag{
-      position: absolute;
-      left: 155px;
-      top: 50%;
-      transform: translate(0, -50%);
+    &__flag {
       width: 20px;
     }
 
-    .small{
+    .small {
       font-size: 13px;
     }
   }
 
-  .choice-indicator{
-    margin-top: 5px;
+  .choice-indicator {
+    margin-bottom: 5px;
     width: 100%;
   }
 }
 
-.data-article:hover .button-expand{
-  display: block;
-  position: absolute;
-  z-index: 9999;
-  border-radius: 50%;
-  cursor: pointer;
-  left: 200px;
-  top: 10px;
+.map {
+  width: 100%;
+  height: 100%;
+  background: $bg-color;
+  border: 2px solid red;
+  margin-bottom: 5px;
 }
 
-.card:before{
-  content: '';
-  position: absolute;
-  width: 175px;
-  height: 1px;
-  background-color: silver;
-  top: 27px;
-}
-
-
-.data-statistics{
+.wrapper {
+  width: 78%;
   display: flex;
   flex-direction: column;
-  //justify-content: center;
-  //align-items: center;
+  justify-content: space-between;
+  &__inner {
+    position: relative;
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @media screen and (max-width: $laptop) {
+      flex-direction: column;
+    }
+  }
+}
+.toggle {
+  display: none;
+  text-align: center;
+  width: 100%;
+  height: 55px;
+  @media screen and (max-width: $laptop) {
+    display: block;
+  }
+  &__title {
+    display: inline-block;
+    font-weight: 400;
+    color: #2c3e50;
+    padding: 0 10px 10px;
+    border-bottom: 2px solid #3498db;
+    margin: 0;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    &-inactive {
+      color: $title-color;
+      cursor: pointer;
+      padding-bottom: 0;
+      border-bottom: none;
+      transition: all 0.25s ease;
+    }
+  }
+}
+
+.data-statistics {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-size: 13px;
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  width: 200px;
-  height: 310px;
+  height: 100%;
   border: 1px solid silver;
-
-  background-color: #2c3e50;
+  background: $bg-color;
   color: #bdc3c7;
-
+  overflow: auto;
   .statistics-CONT,
   .statistics-RONT,
-  .statistics-DONT{
+  .statistics-DONT {
     font-size: 12px;
     display: flex;
-    flex-direction: column;
   }
 
-  .statistics{
-    position: relative;
-    margin-top: 10px;
-    margin-left: 10px;
+  .statistics,
+  .statistics-country {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    border-bottom: 1px solid #bdc3c7;
   }
 
-  .statistics:after{
-    position: absolute;
-    content: '';
-    width: 180px;
-    height: 1px;
-    background-color: #bdc3c7;
-    top: 22px;
-    left: 0;
-  }
-
-  div:nth-last-child(-n+3):after{
+  div:nth-last-child(-n + 3):after {
     top: 32px;
   }
 
-  .statistics-desc{
+  .statistics-desc {
     color: #3498db;
   }
-
-  .statistics-country{
-    margin-top: 10px;
-    margin-left: 10px;
+  @media screen and (max-width: $laptop) {
+    width: 100%;
+    transition: all 0.3s ease;
+    &-close {
+      transform: translateX(-400px);
+      opacity: 0;
+    }
   }
 }
 
-.data-statistics:hover .button-expand{
-  display: block;
-  position: absolute;
-  z-index: 9999;
-  border-radius: 50%;
-  left: 90%;
-  cursor: pointer;
+.schedule-main {
+  width: 50%;
+  .control-buttons {
+    display: flex;
+    justify-content: space-around;
+  }
+  .chart-container {
+    width: 100%;
+  }
+  @media screen and (max-width: $laptop) {
+    min-width: 300px;
+    min-height: 150px;
+    position: absolute;
+    top: 45px;
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+  &-open {
+    opacity: 1;
+  }
 }
 
-.schedule-main{
-  width: 400px;
-  height: 230px;
-  position: absolute;
-  right: 30px;
-  top: 400px;
+canvas {
+  max-width: 420px;
+  margin: 0 auto;
+}
 
-  .control-buttons{
-    margin: 0 auto;
-    width: 230px;
+.footer {
+  background: $bg-color;
+  color: $title-color;
+  text-align: center;
+  &__authors {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 8px;
+    margin: 0 auto 5px;
+    border-bottom: 1px solid rgba(192, 192, 192, 0.1);
+  }
+  & p,
+  h4 {
+    padding: 8px;
+    margin: 0;
+  }
+  & p {
+    border-right: 1px solid silver;
+    line-height: 10px;
+  }
+  & a {
+    color: #3498db;
+    text-decoration: none;
+    &:hover {
+      color: silver;
+    }
+  }
+  &__meta {
     display: flex;
     justify-content: space-between;
+    width: 125px;
+    padding: 5px;
+    margin: 0 auto;
   }
-
-  .chart-container{
-    //position: absolute;
-    right: 30px;
-    top: 400px;
-    //width: 400px;
-    //height: 200px;
+  & img {
+    width: 50px;
+    opacity: 0.9;
   }
 }
 

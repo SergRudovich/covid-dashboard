@@ -1,13 +1,20 @@
 import './styles/style.scss';
+import './styles/map.scss';
 import {getDom} from './getDom';
 import {getDataCovid} from './getDataCovid';
 import {getStatistics} from './getStatistics';
 import {showStatisticsCountry} from './showStatisticsCountry';
 import {searchCountry} from './searchCountry';
 import {selectStatistics} from './selectStatistics';
+import {toggleTable} from './switches/toggleTable';
 
 // график
 import {getSheludeStatistics} from './schedule/getSheludeStatistics';
+
+
+import {getMap} from './map/getMap';
+
+
 
 getDom();
 
@@ -27,8 +34,14 @@ selectStatistics(data);
 // поиск страны
 searchCountry(data);
 
-// запрос на временную историю 
+// запрос на временную историю
 // getSchedule(); - здесь не используется
 
 // отрисовка графика
 getSheludeStatistics();
+
+// карта
+getMap();
+
+// переключение таблиц
+toggleTable();
