@@ -52,13 +52,14 @@ function getDom(){
     toggle.innerHTML = `
         <h2 class="toggle__title">Table</h2><h2 class="toggle__title toggle__title-inactive">Schedule</h2>
     `
-
+{/* <a  class="button-expand scheduleBtn"><img data-controlButtons="expandSchedule" src="expand.svg"/></a> */}
     scheduleMain.innerHTML = `
         <div class="control-buttons">
             <button data-controlButtons="cases" class="button-cases">cases</button>
             <button data-controlButtons="deaths" class="button-deaths">deaths</button>
             <button data-controlButtons="recovered" class="button-recovered">recovered</button>
-            <a  class="button-expand"><img data-controlButtons="expandSchedule" src="expand.svg"/></a>
+            <button data-controlButtons="expandSchedule" class="button-expand">] [</button>
+            
         </div>
         <div class="chart-container">
             <canvas id="chart"></canvas>
@@ -106,6 +107,9 @@ function getDom(){
     dataArticle.append(divSelect);
     dataArticle.append(divData);
   
+    map.innerHTML = `
+    <button data-controlButtons="expandMap" class="button-expand mapBtn">] [</button>
+`;
     map.append(mapContainer)
 
     wrapperInner.append(toggle, divStatistics,scheduleMain);

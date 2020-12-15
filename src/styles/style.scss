@@ -264,7 +264,47 @@ canvas {
 
   }  
 
-.schedule-main:hover .button-expand{
+  .map:hover{
+    .button-expand{
+      display: block;
+      position: absolute;
+      z-index: 9999;
+      border-radius: 50%;
+      left: 95%;
+      cursor: pointer;
+      transition: 0.4s;
+      background: rgb(195, 83, 17);
+   }
+  }
+  
+
+.data-statistics:hover
+.button-expand{
+    display: block;
+    position: absolute;
+    z-index: 999999;
+    border-radius: 50%;
+    left: 10px;
+    top:10px;
+    cursor: pointer;
+    transition: 0.4s;
+    background: rgb(195, 83, 17);
+}
+
+.data-article:hover
+.button-expand{
+    display: block;
+    position: absolute;
+    z-index: 9999;
+    border-radius: 50%;
+    left: 20px;
+    cursor: pointer;
+    transition: 0.4s;
+    background: rgb(195, 83, 17);
+ }
+
+.schedule-main:hover 
+.button-expand{
   display: block;
   position: absolute;
   z-index: 9999;
@@ -272,10 +312,11 @@ canvas {
   left: 95%;
   cursor: pointer;
   transition: 0.4s;
+  background: rgb(195, 83, 17);
 }
 
 .hidden-block{
-  display: none;
+  display: none!important;
 }
 
 .expand-block{

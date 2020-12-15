@@ -30,6 +30,9 @@ async function getSheludeStatistics() {
         case 'expandArticle':
           expandBlock('getArticle');
           break;
+        case 'expandMap':
+          expandBlock('map');
+          break;
         default:
           getItem(elem);
 
