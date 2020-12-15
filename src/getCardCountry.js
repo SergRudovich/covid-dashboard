@@ -26,17 +26,6 @@ function getCardCountry(data) {
       <span class='card__cases'>
         ${checkLengthNumer(data[elem])}
       </span>
-<<<<<<< HEAD
-      <span data-country='${data.country}'
-            data-latLong='${data.lat}, ${data.long}'
-      class='card__country ${small(data.country)}'>
-        ${checkLengthString(data.country)}
-      </span>
-      <span>
-        <img class='card__flag' src='${data.flag}' alt='flag'>
-      </span>
-=======
->>>>>>> a800a9efc085d5ac15d369feef2437409074b9c0
     </div>
   `;
 }
