@@ -1,61 +1,54 @@
+import { getCardCountry, checkLengthNumer } from './getCardCountry';
+
 export { getStatistics };
 
-import { getCardCountry } from './getCardCountry';
-import { checkLengthNumer } from './getCardCountry';
-
-
-let obj = {
+const obj = {
   deaths: 0,
   recovered: 0,
   cases: 0,
-  "today cases": 0,
-  "today deaths": 0,
-  "today recovered": 0
+  'today cases': 0,
+  'today deaths': 0,
+  'today recovered': 0,
 };
 
 async function getStatistics(data) {
-
-  let dataF = await data;
+  const dataF = await data;
   dataF.sort((a, b) => b.cases - a.cases);
 
-
-  dataF.forEach(i => {
+  dataF.forEach((i) => {
     obj.cases += i.cases;
     obj.deaths += i.deaths;
     obj.recovered += i.recovered;
-    obj["today cases"] += i.todayCases;
-    obj["today deaths"] += i.todayDeaths;
-    obj["today recovered"] += i.todayRecovered;
+    obj['today cases'] += i.todayCases;
+    obj['today deaths'] += i.todayDeaths;
+    obj['today recovered'] += i.todayRecovered;
   });
 
+  const globalCasesNumbers = dataF.map((i) => i.cases);
+  const globalCases = globalCasesNumbers.reduce((a, b) => a + b);
 
-  let globalCasesNumbers = dataF.map(i => i.cases);
-  let globalCases = globalCasesNumbers.reduce((a, b) => a + b);
-
-  //общее количество заражённых
+  // общее количество заражённых
   document.querySelector('.global-case-counter').innerHTML = `
-    <button data-controlButtons="expandArticle" class="button-expand">] [</button>
+  <a  class="button-expand articleBtn"><img data-controlButtons="expandArticle" src='./expand.png'/></a>
     <div class='description'>Global Cases</div>
     <div class='counter'>${globalCases}</div>
   `;
 
-  //список заражений + страны
+  // список заражений + страны
   document.querySelector('.data-countries').innerHTML = `
     ${dataF.map(getCardCountry).join('')}
   `;
 
-  //общая статистика в таблице
+  // общая статистика в таблице
   document.querySelector('.data-statistics').innerHTML += `
+  <a  class="button-expand statisticBtn"><img data-controlButtons="expandStatistics" src='./expand.png'/></a>
     ${Object.entries(obj).map(getAllStatistics).join('')}
   `;
 
-
-  //селектор показателей
-  let selects = ['cases', 'deaths', 'recovered'];
+  // селектор показателей
+  const selects = ['cases', 'deaths', 'recovered'];
   document.querySelector('.choice-indicator')
     .innerHTML = selects.map(getSelects).join('');
-
-
 }
 
 function getSelects(select) {
@@ -63,7 +56,6 @@ function getSelects(select) {
     <option dataset.select='${select}'>${select}</option>
   `;
 }
-
 
 function getAllStatistics(i) {
   return `

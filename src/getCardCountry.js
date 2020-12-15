@@ -1,14 +1,12 @@
-export { getCardCountry }
-export { checkLengthNumer }
-
 import { elem } from './selectStatistics';
-import { str } from './searchCountry';
-import { len } from './searchCountry';
+import { str, len } from './searchCountry';
+
+export { getCardCountry };
+export { checkLengthNumer };
 
 function getCardCountry(data) {
-
   if (str) {
-    let country = data.country.toLowerCase();
+    const country = data.country.toLowerCase();
     if (country.slice(0, len) !== str) return;
   }
 
@@ -26,23 +24,12 @@ function getCardCountry(data) {
       <span class='card__cases'>
         ${checkLengthNumer(data[elem])}
       </span>
-<<<<<<< HEAD
-      <span data-country='${data.country}'
-            data-latLong='${data.lat}, ${data.long}'
-      class='card__country ${small(data.country)}'>
-        ${checkLengthString(data.country)}
-      </span>
-      <span>
-        <img class='card__flag' src='${data.flag}' alt='flag'>
-      </span>
-=======
->>>>>>> a800a9efc085d5ac15d369feef2437409074b9c0
     </div>
   `;
 }
 
 function checkLengthNumer(elem) {
-  let newElem = elem.toString();
+  const newElem = elem.toString();
 
   if (newElem.length == 6) {
     return `${newElem.slice(0, 3)},${newElem.slice(-3)}`;

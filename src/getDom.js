@@ -1,72 +1,71 @@
-export { getDom }
+export { getDom };
 
-function getDom(){
-    const root = document.querySelector('#root');
+function getDom() {
+  const root = document.querySelector('#root');
 
-    const header = document.createElement('header');
-    header.classList.add('header');
+  const header = document.createElement('header');
+  header.classList.add('header');
 
-    const footer = document.createElement('footer')
-    footer.classList.add('footer');
-    const map = document.createElement('div');
-    map.classList.add('map')
+  const footer = document.createElement('footer');
+  footer.classList.add('footer');
+  const map = document.createElement('div');
+  map.classList.add('map');
 
-    const wrapper = document.createElement('div');
-    wrapper.classList.add('wrapper');
+  const wrapper = document.createElement('div');
+  wrapper.classList.add('wrapper');
 
-    const wrapperInner = document.createElement('div');
-    wrapperInner.classList.add('wrapper__inner');
+  const wrapperInner = document.createElement('div');
+  wrapperInner.classList.add('wrapper__inner');
 
-    const toggle = document.createElement('div');
-    toggle.classList.add('toggle');
+  const toggle = document.createElement('div');
+  toggle.classList.add('toggle');
 
-    const globalCasesCounter = document.createElement('div');
-    globalCasesCounter.classList.add('global-case-counter');
+  const globalCasesCounter = document.createElement('div');
+  globalCasesCounter.classList.add('global-case-counter');
 
-    const divSearch = document.createElement('input');
-    divSearch.classList.add('data-search');
-    divSearch.placeholder = 'введите название страны';
+  const divSearch = document.createElement('input');
+  divSearch.classList.add('data-search');
+  divSearch.placeholder = 'введите название страны';
 
-    const dataArticle = document.createElement('article');
-    dataArticle.classList.add('data-article');
+  const dataArticle = document.createElement('article');
+  dataArticle.classList.add('data-article');
 
-    const divData = document.createElement('div');
-    divData.classList.add('data-countries');
+  const divData = document.createElement('div');
+  divData.classList.add('data-countries');
 
-    const divStatistics = document.createElement('div');
-    divStatistics.classList.add('data-statistics');
+  const divStatistics = document.createElement('div');
+  divStatistics.classList.add('data-statistics');
 
-    const divSelect = document.createElement('div');
-    divSelect.classList.add('container-choice-indicator');
+  const divSelect = document.createElement('div');
+  divSelect.classList.add('container-choice-indicator');
 
-    const choiceIndicator = document.createElement('select');
-    choiceIndicator.classList.add('choice-indicator');
+  const choiceIndicator = document.createElement('select');
+  choiceIndicator.classList.add('choice-indicator');
 
-    const scheduleMain = document.createElement('div');
-    scheduleMain.classList.add('schedule-main');
+  const scheduleMain = document.createElement('div');
+  scheduleMain.classList.add('schedule-main');
 
-    header.innerHTML = `
+  header.innerHTML = `
         <h1 class="header__title">COVID-19 Dashboard</h1>
     `;
 
-    toggle.innerHTML = `
+  toggle.innerHTML = `
         <h2 class="toggle__title">Table</h2><h2 class="toggle__title toggle__title-inactive">Schedule</h2>
-    `
-{/* <a  class="button-expand scheduleBtn"><img data-controlButtons="expandSchedule" src="expand.svg"/></a> */}
-    scheduleMain.innerHTML = `
+    `;
+{/* <button data-controlButtons="expandSchedule" class="button-expand">] [</button> */}
+  scheduleMain.innerHTML = `
         <div class="control-buttons">
             <button data-controlButtons="cases" class="button-cases">cases</button>
             <button data-controlButtons="deaths" class="button-deaths">deaths</button>
             <button data-controlButtons="recovered" class="button-recovered">recovered</button>
-            <button data-controlButtons="expandSchedule" class="button-expand">] [</button>
-            
+            <a  class="button-expand scheduleBtn"><img data-controlButtons="expandSchedule" src='./expand.png'/></a>
         </div>
         <div class="chart-container">
             <canvas id="chart"></canvas>
         </div>
     `;
-    
-    footer.innerHTML = `
+
+  footer.innerHTML = `
         <div class="footer__info">
             <h4 class="footer__title">CONNECT WITH US:</h4>
             <div class="footer__authors">
@@ -83,39 +82,29 @@ function getDom(){
             
      `;
 
-
-//     document.body.append(scheduleMain);
-
-    // карта
-    let mapContainer = document.createElement('div');
-    mapContainer.classList.add('map-container');
-    mapContainer.innerHTML = `
+  // карта
+  const mapContainer = document.createElement('div');
+  mapContainer.classList.add('map-container');
+  mapContainer.innerHTML = `
       <div id="sample"></div>
     `;
-//     document.body.append(mapContainer);
 
+  divSelect.append(choiceIndicator);
 
+  dataArticle.append(globalCasesCounter);
+  dataArticle.append(divSearch);
+  dataArticle.append(divSelect);
+  dataArticle.append(divData);
 
-    divSelect.append(choiceIndicator);
-
-    globalCasesCounter.innerHTML = `
-        <button data-controlButtons="expandStatistics" class="button-expand">] [</button>
+  map.innerHTML = `
+  <a  class="button-expand mapBtn"><img data-controlButtons="expandMap" src='./expand.png'/></a>
 `;
+  map.append(mapContainer);
 
-    dataArticle.append(globalCasesCounter);
-    dataArticle.append(divSearch);
-    dataArticle.append(divSelect);
-    dataArticle.append(divData);
-  
-    map.innerHTML = `
-    <button data-controlButtons="expandMap" class="button-expand mapBtn">] [</button>
-`;
-    map.append(mapContainer)
+  wrapperInner.append(toggle, divStatistics, scheduleMain);
+  wrapper.append(map, wrapperInner);
 
-    wrapperInner.append(toggle, divStatistics,scheduleMain);
-    wrapper.append(map, wrapperInner)
+  root.append(dataArticle, wrapper);
 
-    root.append(dataArticle,wrapper)
-
-    document.body.append(header, root, footer);
+  document.body.append(header, root, footer);
 }

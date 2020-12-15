@@ -48,7 +48,23 @@ module.exports = {
         {
           from: path.resolve(__dirname, "src/assets/favicon.ico"),
           to: path.resolve(__dirname, 'public')
-        }
+        },
+        {
+          from: path.resolve(__dirname, "src/assets/icons/expand.svg"),
+          to: path.resolve(__dirname, 'public')
+        },
+        {
+          from: path.resolve(__dirname, "src/assets/icons/expand.png"),
+          to: path.resolve(__dirname, 'public')
+        },
+        {
+          from: path.resolve(__dirname, "src/assets/icons/collapse.svg"),
+          to: path.resolve(__dirname, 'public')
+        },
+        {
+          from: path.resolve(__dirname, "src/assets/icons/collapse.png"),
+          to: path.resolve(__dirname, 'public')
+        },
       ]
     }),
     new MiniCssExtractPlugin({
