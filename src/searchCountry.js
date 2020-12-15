@@ -1,24 +1,20 @@
-export {searchCountry}
-export {str}
-export {len}
+import { getCardCountry } from './getCardCountry';
 
-import {getCardCountry} from './getCardCountry';
+export { searchCountry };
+export { str };
+export { len };
 
 let str = '';
 let len = 0;
-let countriesFound = [];
+const countriesFound = [];
 
-
-function searchCountry(data){
-
+function searchCountry(data) {
   // document.onclick = function(e) {
-  document.addEventListener('click', function(e){
+  document.addEventListener('click', (e) => {
+    if (e.target.className !== 'data-search') return;
+    const input = document.querySelector('.data-search');
 
-    if(e.target.className !== 'data-search') return;
-    let input = document.querySelector('.data-search');
-
-    input.onkeyup = function(){
-
+    input.onkeyup = function () {
       str = input.value;
       len = str.length;
 
@@ -32,11 +28,10 @@ function searchCountry(data){
       // })
 
       data.then((countriesFound) => {
-
         document.querySelector('.data-countries').innerHTML = `
           ${countriesFound.map(getCardCountry).join('')}
         `;
       });
-    }
+    };
   });
 }

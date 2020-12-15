@@ -1,8 +1,8 @@
-export {countryCentering}
-import {getMap} from './getMap';
+import { getMap } from './getMap';
 
+export { countryCentering };
 
-function countryCentering(){
+function countryCentering() {
 
   // document.addEventListener('click', (e) => {
   //   if(e.target.dataset.latlong){

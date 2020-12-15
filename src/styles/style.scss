@@ -254,3 +254,69 @@ canvas {
     opacity: 0.9;
   }
 }
+
+.button-expand{
+    display: none;
+  } 
+
+.button-expand:hover{
+  opacity: 0.8;
+  transform: scale(1.2);
+  transition: 0.4s;
+
+  }  
+
+  .map:hover{
+    .button-expand{
+      display: block;
+      position: absolute;
+      z-index: 9999;
+      left: 95%;
+      cursor: pointer;
+      transition: 0.4s;
+   }
+  }
+  
+
+.data-statistics:hover
+.button-expand{
+    display: block;
+    position: absolute;
+    z-index: 999999;
+    left: 10px;
+    top:10px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.data-article:hover
+.button-expand{
+    display: block;
+    position: absolute;
+    z-index: 9999;
+    left: 10px;
+    cursor: pointer;
+    transition: 0.4s;
+ }
+
+.schedule-main:hover 
+.button-expand{
+  display: block;
+  position: absolute;
+  z-index: 9999;
+  left: 95%;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.hidden-block{
+  display: none!important;
+}
+
+.expand-block{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
