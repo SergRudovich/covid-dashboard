@@ -29,31 +29,16 @@
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
     "file-loader": "^6.2.0",
-<<<<<<< HEAD
     "html-webpack-plugin": "^4.5.0",
     "leaflet-transitionedicon": "^0.2.1",
     "mini-css-extract-plugin": "^1.3.3",
     "node-sass": "^5.0.0",
     "sass-loader": "^10.1.0",
-=======
->>>>>>> a800a9efc085d5ac15d369feef2437409074b9c0
     "webpack": "^5.10.1",
     "webpack-cli": "^4.2.0",
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-<<<<<<< HEAD
     "normalize.css": "^8.0.1"
-=======
-    "axios": "^0.21.0",
-    "chart.js": "^2.9.4",
-    "clean-webpack-plugin": "^3.0.0",
-    "copy-webpack-plugin": "^7.0.0",
-    "css-loader": "^5.0.1",
-    "html-webpack-plugin": "^4.5.0",
-    "mini-css-extract-plugin": "^1.3.3",
-    "sass": "^1.30.0",
-    "sass-loader": "^10.1.0"
->>>>>>> a800a9efc085d5ac15d369feef2437409074b9c0
   }
 }
