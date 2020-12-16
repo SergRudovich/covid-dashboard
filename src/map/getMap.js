@@ -12,19 +12,23 @@ async function getMap(){
   };
 
   document.addEventListener('click', (e) => {
+
     if(e.target.dataset.latlong){
+      console.log(1)
       let num = e.target.dataset.latlong;
       center = num.split(',').map(i => +i);
       map.setView(center, 3);
 
       let myIcon = L.icon({
-        iconUrl: 'https://lh3.googleusercontent.com/proxy/QhQpk-g0FYu2jVhRmbSAlJlpU-CcLPp_zvNgKZulCcu6FrfnMfZ26GpBOnz-gjrjM2w-0D2LjJdjHc0Sujjp50SXMn7P1rYUnYvp-NVQOamrqeFbYVnVS8ewnYgXPIto2E2wuqiPSGM6NyPGV8GBGWd9',
-        iconSize: [25, 30],
-        iconAnchor: [4, 25],
+        iconUrl: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+        iconSize: [40, 40],
+        iconAnchor: [13, 40],
         popupAnchor: [-3, -76],
       });
 
+
       L.marker(center, {icon: myIcon}).addTo(map);
+
     }
   });
 

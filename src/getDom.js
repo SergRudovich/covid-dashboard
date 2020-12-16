@@ -46,8 +46,8 @@ function getDom(){
     mapContainer.innerHTML = `
       <div id="sample"></div>
     `;
-    document.body.append(mapContainer);
 
+    document.body.append(mapContainer);
 
     divSelect.append(choiceIndicator);
 
