@@ -17,6 +17,7 @@ function getCardCountry(data) {
           <img class='card__flag' src='${data.flag}' alt='flag'>
         </span>
         <span data-country='${data.country}'
+        data-latLong='${data.lat}, ${data.long}'
         class='card__country ${small(data.country)}'>
         ${checkLengthString(data.country)}
         </span>
