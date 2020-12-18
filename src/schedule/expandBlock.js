@@ -7,16 +7,19 @@ export default function expandBlock(block) {
   const mapBtn = document.querySelector('.mapBtn');
   const statisticBtn = document.querySelector('.statisticBtn');
   const articleBtn = document.querySelector('.articleBtn');
+  const wrapperInner = document.querySelector('.wrapper__inner');
 
   const blocks = [article, statistics, schedule, map];
 
-  function restoreBlocks() {
+  function restoreBlocks(blkBtn) {
+    blkBtn.firstChild.src = './expand.png';
     blocks.forEach((element) => {
       element.classList.remove('hidden-block', 'expand-block');
     });
   }
 
-  function expand(blk) {
+  function expand(blk, blkBtn) {
+    blkBtn.firstChild.src = './collapse.png';
     blocks.forEach((element) => {
       element.classList.add('hidden-block');
     });
@@ -25,41 +28,38 @@ export default function expandBlock(block) {
   }
 
   switch (block) {
+    // график
     case 'getSheludeStatistics':
       if (schedule.classList.contains('expand-block')) {
-        restoreBlocks();
-        scheduleBtn.firstChild.src = './expand.png';
+        restoreBlocks(scheduleBtn);
+        wrapperInner.style.height = '40%';
       } else {
-        expand(schedule);
-        // scheduleBtn.style.left = '97%';
-        scheduleBtn.firstChild.src = './collapse.png';
+        expand(schedule, scheduleBtn);
+        wrapperInner.style.height = '100%';
       }
       break;
+    // таблица
     case 'getStatistics':
       if (statistics.classList.contains('expand-block')) {
-        restoreBlocks();
-        statisticBtn.firstChild.src = './expand.png';
+        restoreBlocks(statisticBtn);
       } else {
-        expand(statistics);
-        statisticBtn.firstChild.src = './collapse.png';
+        expand(statistics, statisticBtn);
       }
       break;
+    // список
     case 'getArticle':
       if (article.classList.contains('expand-block')) {
-        restoreBlocks();
-        articleBtn.firstChild.src = './expand.png';
+        restoreBlocks(articleBtn);
       } else {
-        expand(article);
-        articleBtn.firstChild.src = './collapse.png';
+        expand(article, articleBtn);
       }
       break;
+    // карта
     case 'map':
       if (map.classList.contains('expand-block')) {
-        restoreBlocks();
-        mapBtn.firstChild.src = './expand.png';
+        restoreBlocks(mapBtn);
       } else {
-        expand(map);
-        mapBtn.firstChild.src = './collapse.png';
+        expand(map, mapBtn);
       }
       break;
     default:

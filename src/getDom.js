@@ -105,6 +105,5 @@ function getDom() {
   wrapper.append(map, wrapperInner);
 
   root.append(dataArticle, wrapper);
-
   document.body.append(header, root, footer);
 }
