@@ -7,6 +7,7 @@ import { showStatisticsCountry } from './showStatisticsCountry';
 import { searchCountry } from './searchCountry';
 import { selectStatistics } from './selectStatistics';
 import { toggleTable } from './switches/toggleTable';
+import { switchTable } from './switches/switchTable';
 
 // график
 import { getSheludeStatistics } from './schedule/getSheludeStatistics';
@@ -42,3 +43,6 @@ getMap();
 
 // переключение таблиц
 toggleTable();
+
+// переключение секции
+switchTable()

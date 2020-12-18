@@ -49,15 +49,28 @@ function getDom() {
         <h1 class="header__title">COVID-19 Dashboard</h1>
     `;
 
+    header.addEventListener('click', (event)=> {
+      if (event.target.tagName === 'H1') location.reload();
+    })
+
   toggle.innerHTML = `
         <h2 class="toggle__title">Table</h2><h2 class="toggle__title toggle__title-inactive">Schedule</h2>
     `;
 {/* <button data-controlButtons="expandSchedule" class="button-expand">] [</button> */}
+  divStatistics.innerHTML = `
+        <div class="control-buttons">
+          <label for="global">global stat</label>
+        </div>
+    `;
+
   scheduleMain.innerHTML = `
         <div class="control-buttons">
-            <button data-controlButtons="cases" class="button-cases">cases</button>
-            <button data-controlButtons="deaths" class="button-deaths">deaths</button>
-            <button data-controlButtons="recovered" class="button-recovered">recovered</button>
+            <input checked type="radio" name="schelude" id="cases">
+            <label data-controlButtons="cases" for="cases">cases</label>
+            <input type="radio" name="schelude" id="deaths">
+            <label data-controlButtons="deaths" for="deaths">deaths</label>
+            <input type="radio" name="schelude" id="recovered">
+            <label data-controlButtons="recovered" for="recovered">recovered</label>
             <a  class="button-expand scheduleBtn"><img data-controlButtons="expandSchedule" src='./expand.png'/></a>
         </div>
         <div class="chart-container">
