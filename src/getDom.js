@@ -92,7 +92,7 @@ function getDom() {
                 <span class="footer__year">© 2020</span>
             </div>
         </div>
-            
+
      `;
 
   // карта
@@ -102,7 +102,9 @@ function getDom() {
       <div id="sample"></div>
     `;
 
+  // document.body.append(mapContainer);
   divSelect.append(choiceIndicator);
+
 
   dataArticle.append(globalCasesCounter);
   dataArticle.append(divSearch);
