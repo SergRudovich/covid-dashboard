@@ -1,24 +1,21 @@
-export {selectStatistics}
-export {elem}
+import { getCardCountry } from './getCardCountry';
 
-import {getCardCountry} from './getCardCountry';
-
+export { selectStatistics };
+export { elem };
 
 let elem = 'cases';
-async function selectStatistics(data){
-    let newData = await data;
+async function selectStatistics(data) {
+  const newData = await data;
 
+  const select = document.querySelector('.choice-indicator');
+  const dataCountries = document.querySelector('.data-countries');
 
-    let select = document.querySelector('.choice-indicator');
-    let dataCountries = document.querySelector('.data-countries');
+  select.onchange = function () {
+    elem = this.value;
+    newData.sort((a, b) => b[elem] - a[elem]);
 
-    select.onchange = function(){
-        elem = this.value;
-        newData.sort((a, b) => b[elem] - a[elem]);
-
-
-        dataCountries.innerHTML = `
+    dataCountries.innerHTML = `
             ${newData.map(getCardCountry).join('')}
         `;
-    }
+  };
 }

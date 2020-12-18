@@ -1,25 +1,23 @@
 import './styles/style.scss';
 import './styles/map.scss';
-import {getDom} from './getDom';
-import {getDataCovid} from './getDataCovid';
-import {getStatistics} from './getStatistics';
-import {showStatisticsCountry} from './showStatisticsCountry';
-import {searchCountry} from './searchCountry';
-import {selectStatistics} from './selectStatistics';
+import { getDom } from './getDom';
+import { getDataCovid } from './getDataCovid';
+import { getStatistics } from './getStatistics';
+import { showStatisticsCountry } from './showStatisticsCountry';
+import { searchCountry } from './searchCountry';
+import { selectStatistics } from './selectStatistics';
+import { toggleTable } from './switches/toggleTable';
 
 // график
-import {getSheludeStatistics} from './schedule/getSheludeStatistics';
+import { getSheludeStatistics } from './schedule/getSheludeStatistics';
 
-
-import {getMap} from './map/getMap';
-
-
+import { getMap } from './map/getMap';
 
 getDom();
 
 // запрос к axios и получение данных
 // export {data}
-let data = getDataCovid();
+const data = getDataCovid();
 
 // передача данных в функцию для отрисовки контента отрисовывает в списке и таблице
 getStatistics(data);
@@ -27,7 +25,7 @@ getStatistics(data);
 // отображение информации по клику на страну из списка
 showStatisticsCountry(data);
 
-//выбор показателя
+// выбор показателя
 selectStatistics(data);
 
 // поиск страны
@@ -41,3 +39,6 @@ getSheludeStatistics();
 
 // карта
 getMap();
+
+// переключение таблиц
+toggleTable();
