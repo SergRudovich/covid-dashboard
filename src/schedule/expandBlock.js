@@ -7,13 +7,17 @@ export default function expandBlock(block) {
   const mapBtn = document.querySelector('.mapBtn');
   const statisticBtn = document.querySelector('.statisticBtn');
   const articleBtn = document.querySelector('.articleBtn');
-  
   const wrapperInner = document.querySelector('.wrapper__inner');
+  const wrapper = document.querySelector('.wrapper');
+  const canvas = document.querySelector('canvas');
 
   const blocks = [article, statistics, schedule, map];
 
   function restoreBlocks(blkBtn) {
     blkBtn.firstChild.src = './expand.png';
+    wrapperInner.style.height = '40%';
+    wrapper.style.width = '78%';
+
     blocks.forEach((element) => {
       element.classList.remove('hidden-block', 'expand-block');
     });
@@ -21,6 +25,8 @@ export default function expandBlock(block) {
 
   function expand(blk, blkBtn) {
     blkBtn.firstChild.src = './collapse.png';
+    wrapperInner.style.height = '100%';
+    wrapper.style.width = '100%';
     blocks.forEach((element) => {
       element.classList.add('hidden-block');
     });
@@ -33,10 +39,10 @@ export default function expandBlock(block) {
     case 'getSheludeStatistics':
       if (schedule.classList.contains('expand-block')) {
         restoreBlocks(scheduleBtn);
-        wrapperInner.style.height = '40%';
+        canvas.style.maxWidth = '420px';
       } else {
         expand(schedule, scheduleBtn);
-        wrapperInner.style.height = '100%';
+        canvas.style.maxWidth = '80%';
       }
       break;
     // таблица
