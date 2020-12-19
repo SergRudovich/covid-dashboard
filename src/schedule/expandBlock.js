@@ -7,6 +7,7 @@ export default function expandBlock(block) {
   const mapBtn = document.querySelector('.mapBtn');
   const statisticBtn = document.querySelector('.statisticBtn');
   const articleBtn = document.querySelector('.articleBtn');
+  
   const wrapperInner = document.querySelector('.wrapper__inner');
 
   const blocks = [article, statistics, schedule, map];
