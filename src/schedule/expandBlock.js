@@ -56,8 +56,10 @@ export default function expandBlock(block) {
     // список
     case 'getArticle':
       if (article.classList.contains('expand-block')) {
+        wrapper.classList.remove('hidden-block');
         restoreBlocks(articleBtn);
       } else {
+        wrapper.classList.add('hidden-block');
         expand(article, articleBtn);
       }
       break;

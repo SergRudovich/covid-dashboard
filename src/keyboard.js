@@ -1,33 +1,35 @@
+import { fromVirtualKbd } from './searchCountry';
+
 export { Keyboard };
 
 const Keyboard = {
   keyLayoutEn: [
-    '`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'backspace',
+    '`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'backspace',
     'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']',
-    'caps', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', "'", 'enter',
+    'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', "'", 'enter',
     'done', 'shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ' , ', ' . ', '?',
-    'sound', 'en', 'space', '<', '>', 'voice',
+    'en', 'space', '<', '>',
   ],
   keyLayoutEnShift: [
-    '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', 'backspace',
+    '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', 'backspace',
     'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '{', '}',
-    'caps', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ':', '|', 'enter',
+    'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ':', '|', 'enter',
     'done', 'shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ';', '`', '/',
-    'sound', 'en', 'space', '<', '>', 'voice',
+    'en', 'space', '<', '>',
   ],
   keyLayoutRu: [
-    'ё', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'backspace',
+    'ё', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'backspace',
     'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ',
-    'caps', 'ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', 'enter',
+    'ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', 'enter',
     'done', 'shift', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', '.',
-    'sound', 'рус', 'space', '<', '>', 'voice',
+    'рус', 'space', '<', '>',
   ],
   keyLayoutRuShift: [
-    'ё', '!', '"', '№', ';', '%', ':', '&', '*', '(', ')', '-', '=', 'backspace',
+    'ё', '!', '"', '№', ';', '%', ':', '&', '*', '(', ')', 'backspace',
     'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ',
-    'caps', 'ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', 'enter',
+    'ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', 'enter',
     'done', 'shift', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', ',',
-    'sound', 'рус', 'space', '<', '>', 'voice',
+    'рус', 'space', '<', '>',
   ],
 
   elements: {
@@ -68,25 +70,23 @@ const Keyboard = {
     document.body.appendChild(this.elements.main);
     this.input = document.querySelectorAll('.data-search');
     // Automatically use keyboard for elements with .use-keyboard-input
-    document.querySelectorAll('.data-search').forEach((element) => {
-      element.addEventListener('focus', () => {
-        this.open(element.value, (currentValue) => {
-          element.value = currentValue;
-        });
-      });
-      // save keyboard input
-      element.addEventListener('blur', () => {
-        this.open(element.value, (currentValue) => {
-          element.value = currentValue;
-        });
+    document.querySelector('.virtualKbd_btn').addEventListener('click', () => {
+      this.open(this.input[0].value, (currentValue) => {
+        this.input[0].value = currentValue;
       });
     });
+    // save keyboard input
+    // this.input.addEventListener('blur', () => {
+    //   this.open(this.input[0].value, (currentValue) => {
+    //     this.input[0].value = currentValue;
+    //   });
+    // });
 
     document.addEventListener('keydown', (event) => {
-    //   this.elements.keys[this.keyIndex(event.key)].classList.add('keyboard__key_on', true);
+      //   this.elements.keys[this.keyIndex(event.key)].classList.add('keyboard__key_on', true);
     });
     document.addEventListener('keyup', (event) => {
-    //   this.elements.keys[this.keyIndex(event.key)].classList.remove('keyboard__key_on', true);
+      //   this.elements.keys[this.keyIndex(event.key)].classList.remove('keyboard__key_on', true);
     });
   },
 
@@ -239,6 +239,7 @@ const Keyboard = {
             this._triggerEvent('oninput');
             this.input[0].focus();
             setCaretPosition(this.input[0], caretPos - 1);
+            fromVirtualKbd();
             if (this.properties.onSound) playSound('backspace');
           });
           break;
@@ -330,7 +331,9 @@ const Keyboard = {
           keyElement.classList.add('keyboard__key--wide');
           keyElement.innerHTML = createIconHTML('keyboard_return');
           keyElement.addEventListener('click', () => {
-            this.insertChar('\n');
+            fromVirtualKbd();
+            this.close();
+            this._triggerEvent('onclose');
             if (this.properties.onSound) playSound('enter');
           });
           break;
@@ -339,6 +342,7 @@ const Keyboard = {
           keyElement.innerHTML = createIconHTML('space_bar');
           keyElement.addEventListener('click', () => {
             this.insertChar(' ');
+            fromVirtualKbd();
             if (this.properties.onSound) playSound(this.properties.sound);
           });
           break;
@@ -346,6 +350,7 @@ const Keyboard = {
           keyElement.classList.add('keyboard__key--wide', 'keyboard__key--dark');
           keyElement.innerHTML = createIconHTML('check_circle');
           keyElement.addEventListener('click', () => {
+            fromVirtualKbd();
             this.close();
             this._triggerEvent('onclose');
           });
@@ -354,6 +359,7 @@ const Keyboard = {
           keyElement.textContent = key.toLowerCase();
           keyElement.addEventListener('click', () => {
             this.insertChar(keyElement.textContent);
+            fromVirtualKbd();
             if (this.properties.onSound) playSound(this.properties.sound);
           });
           break;
