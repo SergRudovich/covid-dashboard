@@ -231,6 +231,7 @@ const Keyboard = {
           keyElement.classList.add('keyboard__key--wide');
           keyElement.innerHTML = createIconHTML('backspace');
           keyElement.addEventListener('click', () => {
+            this.properties.value = this.input[0].value;
             const caretPos = doGetCaretPosition(this.input[0]);
             let m = [];
             m = this.properties.value.split('');
@@ -331,6 +332,9 @@ const Keyboard = {
           keyElement.classList.add('keyboard__key--wide');
           keyElement.innerHTML = createIconHTML('keyboard_return');
           keyElement.addEventListener('click', () => {
+            setCaretPosition(this.input[0], this.properties.value.length);
+            this.properties.value = this.input[0].value;
+            this.properties.value = this.input[0].value;
             fromVirtualKbd();
             this.close();
             this._triggerEvent('onclose');
@@ -350,6 +354,8 @@ const Keyboard = {
           keyElement.classList.add('keyboard__key--wide', 'keyboard__key--dark');
           keyElement.innerHTML = createIconHTML('check_circle');
           keyElement.addEventListener('click', () => {
+            setCaretPosition(this.input[0], this.properties.value.length);
+            this.properties.value = this.input[0].value;
             fromVirtualKbd();
             this.close();
             this._triggerEvent('onclose');
@@ -415,6 +421,7 @@ const Keyboard = {
   },
 
   insertChar(key) {
+    this.properties.value = this.input[0].value;
     const caretPos = doGetCaretPosition(this.input[0]);
     let m = [];
     m = this.properties.value.split('');
