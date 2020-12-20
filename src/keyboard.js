@@ -415,6 +415,7 @@ const Keyboard = {
   },
 
   insertChar(key) {
+    this.properties.value = this.input[0].value;
     const caretPos = doGetCaretPosition(this.input[0]);
     let m = [];
     m = this.properties.value.split('');
