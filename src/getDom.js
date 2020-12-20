@@ -23,10 +23,19 @@ function getDom() {
   const globalCasesCounter = document.createElement('div');
   globalCasesCounter.classList.add('global-case-counter');
 
-  const divSearch = document.createElement('input');
-  divSearch.classList.add('data-search');
-  divSearch.placeholder = 'введите название страны';
+  const searchInput = document.createElement('input');
+  searchInput.classList.add('data-search');
+  searchInput.placeholder = 'введите название страны';
 
+  const divSearch = document.createElement('div');
+  divSearch.classList.add('div-search');
+
+  divSearch.append(searchInput);
+
+  divSearch.innerHTML += `
+  <a  class="virtualKbd_btn"><img src='./keyboard.png'/></a>
+`;
+{/* <button class="virtualKbd_btn">KEYBOARD</button> */}
   const dataArticle = document.createElement('article');
   dataArticle.classList.add('data-article');
 

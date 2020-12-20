@@ -50,19 +50,15 @@ module.exports = {
           to: path.resolve(__dirname, 'public')
         },
         {
-          from: path.resolve(__dirname, "src/assets/icons/expand.svg"),
-          to: path.resolve(__dirname, 'public')
-        },
-        {
           from: path.resolve(__dirname, "src/assets/icons/expand.png"),
           to: path.resolve(__dirname, 'public')
         },
         {
-          from: path.resolve(__dirname, "src/assets/icons/collapse.svg"),
+          from: path.resolve(__dirname, "src/assets/icons/collapse.png"),
           to: path.resolve(__dirname, 'public')
         },
         {
-          from: path.resolve(__dirname, "src/assets/icons/collapse.png"),
+          from: path.resolve(__dirname, "src/assets/icons/keyboard.png"),
           to: path.resolve(__dirname, 'public')
         },
       ]
