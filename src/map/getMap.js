@@ -13,7 +13,6 @@ async function getMap() {
   document.addEventListener('click', (e) => {
 
     if(e.target.dataset.latlong){
-      console.log(1)
       let num = e.target.dataset.latlong;
       center = num.split(',').map(i => +i);
       map.setView(center, 3);
@@ -83,7 +82,7 @@ async function getMap() {
     }
 
     const html = `
-      <span class="icon-marker">
+      <span data-country='${country.country}' class="icon-marker">
        <span class="icon-marker-tooltip">
          <h2>${country.country}</h2>
          <ul>

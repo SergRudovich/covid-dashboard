@@ -9,7 +9,6 @@ async function getSheludeStatistics() {
   let country;
   let data;
   data = await getSchedule();
-  // console.log(data)
 
   document.onclick = async function (e) {
     // если нажата кнопка в графике (cases, recovered, deaths)
@@ -37,23 +36,20 @@ async function getSheludeStatistics() {
           removeChaConfig(chartConfig);
       }
 
-      // if (elem === 'expandSchedule') expandBlock('getSheludeStatistics');
-      // if (elem === 'expandStatistics') expandBlock('getStatistics');
-      // if (elem === 'expandArticle') expandBlock('getArticle');
-
-      // getItem(elem);
-
-      // очищаем старый график
-      // removeChaConfig(chartConfig);
     }
 
     if (e.target.dataset.country) {
-      // тоже самое что и выше только передаём условием выбранную страну
+
       country = e.target.dataset.country;
 
-      // и тут её получаем
-      const elem = await getSchedule(country);
-      data = elem.timeline;
+
+      try {
+        const elem = await getSchedule(country);  
+        data = elem.timeline;
+      } catch (e) {
+        console.log(`Failed to fetch countries: ${e.message}`, e);
+        return;
+      }
 
       getItem();
       removeChaConfig(chartConfig);
