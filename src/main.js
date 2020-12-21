@@ -14,6 +14,8 @@ import { getSheludeStatistics } from './schedule/getSheludeStatistics';
 
 import { getMap } from './map/getMap';
 
+import { Keyboard } from './keyboard';
+
 getDom();
 
 // запрос к axios и получение данных
@@ -45,4 +47,8 @@ getMap();
 toggleTable();
 
 // переключение секции
-switchTable()
+switchTable();
+
+window.addEventListener('DOMContentLoaded', () => {
+  Keyboard.init();
+});
